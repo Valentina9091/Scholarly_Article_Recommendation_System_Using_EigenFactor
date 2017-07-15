@@ -11,12 +11,19 @@ This data set contains:
 #index ---- index id of this paper
 
 #* ---- paper title
+
 #@ ---- authors (separated by semicolons)
+
 #o ---- affiliations (separated by semicolons, and each affiliation corresponds to an author in order)
-#t ---- year
+
+#t ---- year 
+
 #c ---- publication venue
+
 #% ---- the id of references of this paper (there are multiple lines, with each indicating a reference)
+
 #! ---- abstract
+
 
 Steps:
 1. Assemble Citation Network
@@ -24,10 +31,10 @@ The first step requires assembling the citation graph for the large corpus. The 
 is the cited paper id. 
 Format: 1083734 197394###220708###387427
 
-
-
 2. Rank Node
 Then we rank each article using “article level eigen factor algorithm” (ALEF). When page rank approaches are applied to acyclic citation graphs older papers are weighted excessively. ALEF is a modified version of page rank. The ALEF algorithm consists of five steps: a. The teleportation weight, wi for each node i is calculated by summing the in and out citations.
+![Alt text](https://github.com/Valentina9091/Scholarly_Article_Recommendation_System_Using_EigenFactor/blob/master/img/1.png "Optional title")
+https://github.com/Valentina9091/Scholarly_Article_Recommendation_System_Using_EigenFactor/blob/master/img/1.png
 Forming row stochastic matrix Hij:- The matrix Zij is then row normalized so that the sum of each row i equals, we call this row stochastic matrix,
 Calculating Article Level Eigen Factor:- The ALEF scores are then calculated by multiplying wi by Hij and normalizing the scores by the number of papers, n, in the corpus
 

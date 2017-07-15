@@ -1,4 +1,4 @@
-# Scholarly_Article_Recommendation_System_Using_EigenFactor
+# Scholarly Article Recommendation System Using EigenFactor
 
 This algorithm recommends articles based on the citation information available for each article. It is a modified version of page rank. The papers are recommended based on the hierarchical clustering and Article Level Eigen Factor scores.
 
@@ -8,6 +8,7 @@ https://aminer.org/billboard/aminernetwork
 
 This data set contains:
 #index ---- index id of this paper
+
 #* ---- paper title
 #@ ---- authors (separated by semicolons)
 #o ---- affiliations (separated by semicolons, and each affiliation corresponds to an author in order)

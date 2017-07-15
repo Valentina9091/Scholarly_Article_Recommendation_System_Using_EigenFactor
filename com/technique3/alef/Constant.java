@@ -18,6 +18,7 @@ public class Constant {
 	static final String OUTPUT_DIR_H_MOD = "_H_modified";
 	static final String OUTPUT_DIR_W_MOD = "_W_modified";
 	static final String OUTPUT_DIR_W_final = "_W_final";
+	static final String OUTPUT_DIR_MAP_EQUATION="mapEquation_input";
 
 	static final String ROW_COUNT = "noOfRows";
 	static final String COLUMN_COUNT = "noOfCols";
@@ -27,5 +28,9 @@ public class Constant {
 	static final String ROW_STOCHASTIC_MATRIX = "HT";
 	static final String TELEPORTATION_WEIGHT = "W";
 	static final String SEPARATOR = "##";
+	static final String SEPARATOR_COMMA=",";
+	static final String SEPARATOR_TAB="\t";
+	
+	
 
 }

@@ -92,7 +92,7 @@ public class HMatrix extends Configured implements Tool {
 			int n = 0;
 			for (Text ab : textList) {
 				temp = (ab.toString());
-				temp2 = temp.split("###");
+				temp2 = temp.split(Constant.SEPARATOR);
 				m = Integer.parseInt(temp2[0]);
 				n = Integer.parseInt(temp2[1]);
 				temp3 = m / (float) n;

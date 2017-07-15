@@ -90,14 +90,16 @@ public class LinkGraph extends Configured implements Tool {
 			String key = null;
 			String[] rowArr = null;
 			String line = lineText.toString();
-			String[] recArr = LINE_PATTERN.split(line);
-			String value = recArr[0];
-			for (String record : recArr) {
-				if (record.startsWith(CITATION_ID_IDENTIFIER)) {
-					rowArr = SPACE_PATTERN.split(record);
-					key = rowArr[1];
-					context.write(new IntWritable(Integer.valueOf(key)),
-							new Text(value));
+			if (!line.isEmpty()) {
+				String[] recArr = LINE_PATTERN.split(line);
+				Text value = new Text(recArr[0]);
+				for (String record : recArr) {
+					if (record.startsWith(CITATION_ID_IDENTIFIER)) {
+						rowArr = SPACE_PATTERN.split(record);
+						key = rowArr[1];
+						context.write(new IntWritable(Integer.valueOf(key)),
+								new Text(value));
+					}
 				}
 			}
 		}
@@ -111,7 +113,7 @@ public class LinkGraph extends Configured implements Tool {
 			int counter = 0;
 			for (Text value : valueList) {
 				if (counter > 0) {
-					valueBuffer.append(",");
+					valueBuffer.append(Constant.SEPARATOR_COMMA);
 					valueBuffer.append(value.toString().trim());
 				} else {
 					valueBuffer.append(value.toString().trim());
@@ -121,18 +123,20 @@ public class LinkGraph extends Configured implements Tool {
 				// LOG.info("saved " + counter);
 			}
 
-			if ((valueBuffer.toString()).contains(",")) {
+			if ((valueBuffer.toString()).contains(Constant.SEPARATOR_COMMA)) {
 
-				String ab[] = (valueBuffer.toString()).split(",");
+				String ab[] = (valueBuffer.toString())
+						.split(Constant.SEPARATOR_COMMA);
 
 				for (int i = 0; i < ab.length; i++) {
-					// LOG.info(ab[i] + "at the second loop");
-					context.write(new Text(keyText + "," + ab[i]), new Text("1"
-							+ "###" + counter));
+					context.write(new Text(keyText + Constant.SEPARATOR_COMMA
+							+ ab[i]), new Text("1" + Constant.SEPARATOR
+							+ counter));
 				}
 			} else {
-				context.write(new Text(keyText + "," + valueBuffer.toString()),
-						new Text("1" + "###" + counter));
+				context.write(new Text(keyText + Constant.SEPARATOR_COMMA
+						+ valueBuffer.toString()), new Text("1"
+						+ Constant.SEPARATOR + counter));
 			}
 		}
 	}

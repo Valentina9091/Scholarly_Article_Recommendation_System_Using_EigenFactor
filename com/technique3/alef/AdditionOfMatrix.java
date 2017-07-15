@@ -1,9 +1,11 @@
 package com.technique3.alef;
 
 import java.io.IOException;
-
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+
+
+
 
 //import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -89,12 +91,12 @@ public class AdditionOfMatrix extends Configured implements Tool {
 
 			int ok1 = Integer.parseInt(ab[1]);
 			String value = lineArr[1];
-			String abc[] = value.split("###");
+			String abc[] = value.split(Constant.SEPARATOR);
 
-			context.write(new Text(ok + "," + ok1),
+			context.write(new Text(ok + Constant.SEPARATOR_COMMA + ok1),
 					new IntWritable(Integer.parseInt(abc[0])));
 
-			context.write(new Text(ok1 + "," + ok),
+			context.write(new Text(ok1 + Constant.SEPARATOR_COMMA+ ok),
 					new IntWritable(Integer.parseInt(abc[0])));
 
 		}

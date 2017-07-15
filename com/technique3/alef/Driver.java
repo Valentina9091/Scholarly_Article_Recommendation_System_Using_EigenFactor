@@ -49,17 +49,22 @@ public class Driver {
 						res = ToolRunner.run(new W_Modified(), args);
 						LOG.info("Simplification done successfully");
 						if (res == 0) {
-							// Executing matrix multiplication
+							 Executing matrix multiplication
 							res = ToolRunner.run(new DotProduct(), args);
 							LOG.info(" matrix formed successfully");
 							if (res == 0) {
 								// Executing alef
 								res = ToolRunner.run(new ALEF(), args);
-								LOG.info("ALEF scored computed successfully");
+								//LOG.info("ALEF scored computed successfully");
+								if(res==0){
+									//map links
+									res=ToolRunner.run(new MapequationInputPrep(), args);
+									if(res==0){
+										res=ToolRunner.run(new MapEquation_pajek(), args);
 								if (res == 0) {
 									System.exit(res);
 								}
-							}
+							}}}
 						}
 					}
 

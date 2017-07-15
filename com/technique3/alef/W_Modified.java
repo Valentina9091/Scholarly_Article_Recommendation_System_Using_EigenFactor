@@ -113,7 +113,7 @@ public class W_Modified extends Configured implements Tool {
 					}
 				}
 			}
-			if (!temp.isEmpty())
+			if (!temp.isEmpty() && sb.length()>0)
 				context.write(new Text(temp), new Text(sb.toString()));
 
 		}
